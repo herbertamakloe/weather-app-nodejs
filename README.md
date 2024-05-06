@@ -13,7 +13,7 @@ This is a simple weather application built using Node.js, Express.js, EJS, and V
 2. Navigate to the project directory:
 
    ```bash
-   cd weather-app
+   cd weather-app-nodejs
    ```
 
 3. Install dependencies:
@@ -65,4 +65,5 @@ Once the server is running, you can access the weather app in your web browser b
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
 By [Herbert Tamakloe](https://github.com/herbertamakloe)
