@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./images/few-clouds.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <title>Weather App | Herbert Tamakloe</title>
+</head>
+
+<body>
+  <h2>Weather App</h2>
+  <div class="container">
+    <div class="search_area">
+      <form action="/" method="POST">
+        <input type="text" class="search_bar" placeholder="Search city here . . ." name="city" />
+        <button type="submit" class="search_btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25.729" height="31.766" viewBox="0 0 25.729 31.766">
+            <path id="search-icon-white" d="M23.253,31.325l-5.137-7.616A12.517,12.517,0,0,1,3.665,3.665a12.513,12.513,0,0,1,17.7,17.7q-.44.44-.915.83l5.111,7.579a1,1,0,0,1-.269,1.388l-.648.437a1,1,0,0,1-1.388-.27ZM2.586,12.514a9.927,9.927,0,1,0,9.928-9.928A9.938,9.938,0,0,0,2.586,12.514Z" fill="#fff" />
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <div class="weather_info_display">
+      <div class="weather_image">
+        <% if (locals.icon === "01d") { %>
+        <img src="./images/clear-sky.svg" alt="" />
+        <% } else if (locals.icon === "01n") { %>
+        <img src="./images/clear-sky-night.svg" alt="" />
+        <% } else if (locals.icon === "02d") { %>
+        <img src="./images/few-clouds.svg" alt="" />
+        <% } else if (locals.icon === "02n") { %>
+        <img src="./images/few-clouds-night.svg" alt="" />
+        <% } else if (locals.icon === "03d" || locals.icon === "03n") { %>
+        <img src="./images/scattered-clouds.svg" alt="" />
+
+        <% } else if (locals.icon === "04d" || locals.icon === "04n") { %>
+        <img src="./images/broken-clouds.svg" alt="" />
+
+        <% } else if (locals.icon === "09d" || locals.icon === "09n") { %>
+        <img src="./images/shower-rain.svg" alt="" />
+
+        <% } else if (locals.icon === "10d") { %>
+        <img src="./images/rain.svg" alt="" />
+        <% } else if (locals.icon === "10n") { %>
+        <img src="./images/rain-night.svg" alt="" />
+        <% } else if (locals.icon === "11d" || locals.icon === "11n") { %>
+        <img src="./images/stormy.svg" alt="" />
+        <% } else if (locals.icon === "13d" || locals.icon === "13n") { %>
+        <img src="./images/snowing.svg" alt="" />
+        <% } else if (locals.icon === "50d" || locals.icon === "50n") { %>
+        <img src="./images/mist.svg" alt="" />
+        <% } else { %>
+        <img src="./images/default.svg" alt="" />
+        <% } %>
+
+        <p class="weather_description">
+          <%= locals.weatherDescription %>
+        </p>
+      </div>
+
+      <h1 class="weather_temp"> <%= locals.weatherTemp %>°C</h1>
+
+      <h3 class="location"> <%= locals.location %> </h3>
+
+      <div class="weather_whp">
+        <div class="whp">
+          <span class="title">Feels Like</span>
+          <span class="value" id="feels_like_value"><%= locals.feelsLike %>°C</span>
+        </div>
+        <div class="whp">
+          <span class="title">Wind</span>
+          <span class="value" id="wind_value"><%= locals.wind %>km/h</span>
+        </div>
+        <div class="whp">
+          <span class="title">Humidity</span>
+          <span class="value" id="humidity_value"><%= locals.humidity%>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const weatherIcon = '<%= locals.icon %>'
+    console.log("This vanilla JavaScript");
+    console.log(weatherIcon);
+    if (weatherIcon === "01d") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #4b88cc, #c6e1ff)";
+    } else if (weatherIcon === "01n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #265A8D, #5CA9FF)";
+    } else if (weatherIcon === "02d") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #4b88cc, #c6e1ff)";
+    } else if (weatherIcon === "04d" || weatherIcon === "04n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #4b88cc, #c6e1ff)";
+    } else if (weatherIcon === "09d" || weatherIcon === "09n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #265A8D, #5CA9FF)";
+    } else if (weatherIcon === "10d") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #265A8D, #5CA9FF)";
+    } else if (weatherIcon === "10n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #265A8D, #5CA9FF)";
+    } else if (weatherIcon === "11d" || weatherIcon === "11n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #1F4163, #3B7EC3)";
+    } else if (weatherIcon === "13d" || weatherIcon === "13n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #1F4163, #3B7EC3)";
+    } else if (weatherIcon == "03n" || weatherIcon == "04n") {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #265A8D, #5CA9FF)";
+    } else {
+      document.querySelector(".container").style.background =
+        "linear-gradient(180deg, #4b88cc, #c6e1ff)";
+    }
+  </script>
+</body>
+
+</html>
