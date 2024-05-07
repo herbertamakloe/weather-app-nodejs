@@ -193,6 +193,13 @@ body h2 {
   .container::before {
     bottom: -24px;
   }
+  search_area form .search_bar {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  .search_area form button {
+    padding: 5px 13px;
+  }
   .weather_info_display .weather_image {
     width: 180px;
   }
