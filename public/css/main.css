@@ -138,6 +138,7 @@ body h2 {
   color: #fff;
   font-weight: 400;
   line-height: 1;
+  text-align: center;
 }
 .weather_info_display .weather_whp {
   display: flex;
@@ -175,4 +176,43 @@ body h2 {
 .footer h4 {
   font-size: 30px;
   color: #ffffff;
+}
+
+@media screen and (min-width: 1600px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+/* For Mobile Portrait View */
+@media screen and (max-device-width: 780px) and (orientation: portrait) {
+  .container {
+    width: 90%;
+    border-radius: 90px;
+  }
+  .container::before {
+    bottom: -24px;
+  }
+  .weather_info_display .weather_image {
+    width: 180px;
+  }
+  .weather_info_display .weather_image .weather_description {
+    font-size: 12px;
+  }
+  .weather_info_display .weather_temp {
+    font-size: 35px;
+  }
+  .weather_info_display .location {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .weather_info_display .weather_whp .whp .title {
+    font-size: 16px;
+  }
+  .weather_info_display .weather_whp .whp .value {
+    font-size: 26px;
+  }
+  .footer h4 {
+    font-size: 18px;
+  }
 }
