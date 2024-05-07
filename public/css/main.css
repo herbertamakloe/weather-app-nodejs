@@ -14,7 +14,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* overflow: hidden; */
 }
 
 body h2 {
@@ -46,15 +45,12 @@ body h2 {
 }
 
 .search_area {
-  /* background-color: red; */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 30px;
 }
 .search_area form {
-  /* background-color: yellow; */
-  /* display: inline-block; */
   display: flex;
 }
 
@@ -83,7 +79,6 @@ body h2 {
   opacity: 0.8;
 }
 .search_area form button {
-  /* background: rgba(255, 255, 255, 0.336); */
   padding: 5px 15px;
   border-radius: 50%;
   cursor: pointer;
@@ -104,7 +99,6 @@ body h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 100%; */
   position: absolute;
   left: 0;
   right: 0;
@@ -138,7 +132,6 @@ body h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
-  /* font-weight: 600; */
 }
 .weather_info_display .location {
   font-size: 25px;

@@ -14,40 +14,10 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const weatherApiKey = "04f1bb004f9171d290163e6756d7c3a2";
-const locationApiKey = "56a3f66afaaa4bce96d53e1985d37830";
 
-//5. Render homepage file to user when they request for homepage
-app.get("/", async (req, res) => {
-  try {
-    // Find out user country/city
-    const locationAPI = await axios.get(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=${locationApiKey}`
-    );
-    const userCurrentCity = locationAPI.data.city;
-
-    const weatherAPI = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${userCurrentCity}&units=metric&appid=${weatherApiKey}`
-    );
-
-    const weatherResult = weatherAPI.data;
-    res.render("index.ejs", {
-      weatherDescription: weatherResult.weather[0].description,
-      weatherTemp: Math.round(weatherResult.main.temp),
-      feelsLike: Math.round(weatherResult.main.feels_like),
-      humidity: Math.round(weatherResult.main.humidity),
-      wind: Math.round(weatherResult.wind.speed),
-      location: weatherResult.name,
-      icon: weatherResult.weather[0].icon,
-    });
-  } catch (error) {
-    res.render("index.ejs", {
-      weatherDescription: JSON.stringify(error.response.data.message),
-      weatherTemp: 0,
-      feelsLike: 0,
-      humidity: 0,
-      wind: 0,
-    });
-  }
+//5. Render page to  file to user when they request for homepage
+app.get("/", (req, res) => {
+  res.render("currentlocalweather.ejs");
 });
 
 //6. Handle post request for when the user enters location to know the weather there
